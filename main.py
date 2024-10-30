@@ -1,7 +1,7 @@
 import streamlit as st
 import json
 
-def load_from_jsonl(file_name: str) -> List[dict]:
+def load_from_jsonl(file_name: str):
     def load_json_line(line: str, i: int, file_name: str):
         try:
             return json.loads(line)
