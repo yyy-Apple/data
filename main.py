@@ -1,6 +1,16 @@
 import streamlit as st
 import json
-from ram.data_utils import load_from_jsonl
+
+def load_from_jsonl(file_name: str) -> List[dict]:
+    def load_json_line(line: str, i: int, file_name: str):
+        try:
+            return json.loads(line)
+        except:
+            raise ValueError(f"Error in line {i+1}\n{line} of {file_name}")
+
+    with open(file_name, "r", encoding="UTF-8") as f:
+        data = [load_json_line(line, i, file_name) for i, line in enumerate(f)]
+    return data
 
 
 def main():
