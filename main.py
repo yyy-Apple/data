@@ -29,13 +29,22 @@ def main():
             selected_data = data[index]
 
             text = selected_data.get("text", "")
+            question = selected_data.get("question", "")
+            answer = selected_data.get("final_answer", "")
             try:
                 retrieved_text_idx = text.index("### Text\nRetrieved from")
             except:
                 retrieved_text_idx = 0
           
+            st.title(f"Question at {index}:")
+            st.markdown(question, unsafe_allow_html=True)
+            st.divider()
 
-            st.title(f"Text at index {index}:")
+            st.title(f"Answer at {index}:")
+            st.markdown(answer, unsafe_allow_html=True)
+            st.divider()
+            
+            st.title(f"Original text {index}:")
             st.markdown(text[retrieved_text_idx:], unsafe_allow_html=True)
             st.divider()
 
