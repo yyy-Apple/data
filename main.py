@@ -28,8 +28,8 @@ def main():
 
             selected_data = data[index]
 
-            text = selected_data.get("text", "")
-            question = selected_data.get("question", "")
+            text = selected_data.get("raw_text", "")
+            question = selected_data.get("problem", "")
             answer = selected_data.get("final_answer", "")
             try:
                 retrieved_text_idx = text.index("### Text\nRetrieved from")
