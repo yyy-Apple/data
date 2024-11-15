@@ -16,7 +16,7 @@ def load_from_jsonl(file_name: str):
 def main():
 
     st.title("JSONL File Visualizer")
-    file_path = "round2_filtered_data_full.jsonl"
+    file_path = "data_3000.jsonl"
     if file_path:
         try:
             data = load_from_jsonl(file_path)
